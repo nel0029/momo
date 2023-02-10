@@ -1,13 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 
+import { useState } from 'react';
+import NavBar from './layout/NavBar';
+import { Box, Stack, Grid, Container } from '@mui/material';
+import Divider from '@mui/material/Divider';
+import Main from './pages/Home';
+import LeftSideBar from './layout/LeftSideBar';
+import Feed from './layout/Feed';
+import { ThemeProvider, createTheme } from "@mui/material/styles"
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#2a9461"
+    }
+  }
+});
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      App
-    </div>
+    <ThemeProvider theme={theme}>
+      <Box sx={{ display: "flex", width: "100%", flexDirection: "column-reverse" }}>
+        <NavBar />
+        <Feed />
+      </Box>
+    </ThemeProvider>
+
+
   )
 }
 
